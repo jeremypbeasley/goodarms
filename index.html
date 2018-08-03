@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    iframe {
+      display: none !important
+    }
+  </style>
+  {block:IndexPage}
+    <title>{Title}</title>
+    <meta name="Description" content="{MetaDescription}" />
+    <!-- Facebook Sharing Tags -->
+    <meta property="og:URL" content="http://blog.jeremypbeasley.com" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Jeremy P. Beasley" />
+    <meta property="og:description" content="{Title}" />
+    <meta property="og:image" content="{HeaderImage}" />
+    <!-- Twitter Sharing Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@jeremypbeasley">
+    <meta name="twitter:title" content="Jeremy P. Beasley">
+    <meta name="twitter:text:title" content="Jeremy P. Beasley">
+    <meta name="twitter:description" content="{Title}">
+    <meta name="twitter:image" content="{HeaderImage}">
+  {/block:IndexPage}
+  {block:PermalinkPage}
+    <title>{block:PostTitle}{PostTitle}{/block:PostTitle}</title>
+    <meta name="Description" content="{MetaDescription}" />
+    <!-- Facebook Sharing Tags -->
+    <meta property="og:URL" content="http://blog.jeremypbeasley.com" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{Title}" />
+    <meta property="og:description" content="{block:Excerpt}{Excerpt}{/block:Excerpt}{Body}" />
+    <meta property="og:image" content="{HeaderImage}" />
+    <!-- Twitter Sharing Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@jeremypbeasley">
+    <meta name="twitter:title" content="{block:PostTitle}{PostTitle}{/block:PostTitle}">
+    <meta name="twitter:text:title" content="{block:PostTitle}{PostTitle}{/block:PostTitle}">
+    <meta name="twitter:description" content="{block:Excerpt}{Excerpt}{/block:Excerpt}{Body}">
+    <meta name="twitter:image" content="{HeaderImage}">
+  {/block:PermalinkPage}
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="imagetoolbar" content="no" />
+  <meta name='text:Disqus Shortname' content='' />
+  <link rel="icon" href="{Favicon}" />
+  <!-- Style -->
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="http://jeremypbeasley.com/2018.css">
+  <!-- Forces all post links to open in new window -->
+  <script>
+    window.onload = function(){
+      var anchors = document.getElementById('blank_links').getElementsByTagName('a');
+        for (var i=0; i<anchors.length; i++){
+        anchors[i].setAttribute('target', '_blank');
+      }
+    }
+   </script>
+</head>
+<body>
+  <div class="BlogContainer">
+    <header class="BlogHeader">
+      <p>
+        <a href="/">{Title}</a>
+        <br>Jeremy P. Beasley
+      </p>
+    </header>
+    {block:Posts}
+      <div class="BlogPost" id="post_{PostID}">
+        {block:Text}
+            {block:Title}<p class="BlogTitle"><a href="{Permalink}">{Title}</a></p>{/block:Title}
+            <div id="blank_links">{Body}</div>
+        {/block:Text}
+      </div>
+    {/block:Posts}
+  </div>
+  <footer class="BlogFooter">
+      <p>
+        <a href="http://jeremypbeasley.com/">Jeremy</a> lives in Seattle, Washington. with his three children.
+      </p>
+  </footer>
+</body>
+<!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-53018602-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+</html>
